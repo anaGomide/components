@@ -1,0 +1,90 @@
+DscSelect
+Lista suspensa para seleção de opções com suporte a filtros, seleção múltipla e agrupamento de itens.
+
+import { DscSelectComponent } from "sidsc-components/dsc-select";
+
+<dsc-select
+  [label]="label"
+  [placeholder]="placeholder"
+  [options]="options"
+  [multiple]="multiple"
+  [showFilter]="showFilter"
+  [disabled]="disabled"
+  [size]="size"
+  [labelHint]="labelHint"
+  [labelHintTooltip]="labelHintTooltip"
+  [iconPrefix]="iconPrefix"
+  (selectionChange)="selectionChange($event)"
+  (openedChange)="openedChange($event)"
+/>
+
+PROPRIEDADES
+label	
+@Input() label: string - Rótulo do campo de seleção.
+string
+
+placeholder	
+@Input() placeholder: string - Texto de placeholder exibido quando nenhuma opção está selecionada.
+string
+
+options	
+@Input() options: Option[] - Lista de opções disponíveis para seleção.
+
+Propriedades da interface Option:
+
+• label: string - Texto exibido para a opção.
+
+• value: any - Valor da opção.
+
+• disabled?: boolean - Define se a opção está desabilitada.
+
+• options?: Option[] - Sub-opções para agrupamento (optgroup).
+
+Option[]
+
+size	
+@Input() size: "small" | "standard" | "large" - Define o tamanho do campo.
+
+multiple	
+@Input() multiple: boolean - Permite seleção de múltiplos itens.
+
+showFilter	
+@Input() showFilter: boolean - Exibe campo de filtro para buscar opções.
+boolean
+
+disabled	
+@Input() disabled: boolean - Define se o campo está desabilitado.
+boolean
+
+labelHint	
+@Input() labelHint: string - Texto de dica adicional ao rótulo.
+string
+
+labelHintTooltip	
+@Input() labelHintTooltip: string - Tooltip com informações adicionais.
+string
+
+iconPrefix	
+@Input() iconPrefix: string - Ícone prefixado ao campo.
+string
+
+formFieldHint	
+@Input() formFieldHint: string - Texto de dica exibido abaixo do campo.
+string
+
+errorMessage	
+@Input() errorMessage: string - Mensagem de erro exibida quando o campo é inválido.
+string
+
+compareWith	
+@Input() compareWith: (o1: any, o2: any) => boolean - Define a função para comparar os valores das opções com os valores selecionados.
+(o1: any, o2: any) => boolean
+
+EVENTOS
+selectionChange	
+@Output() selectionChange: EventEmitter - Evento emitido quando a seleção é alterada.
+EventEmitter<any>
+
+openedChange	
+@Output() openedChange: EventEmitter - Evento emitido quando o menu é aberto/fechado.
+EventEmitter<any>
