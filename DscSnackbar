@@ -1,0 +1,104 @@
+DscSnackbar
+Exibe mensagens temporárias na tela com ações opcionais. O objeto derivado da interface DscSnackbarConfig permite personalizar a aparência e o comportamento do snackbar.
+
+interface DscSnackbarConfig {
+
+     verticalPosition?: DscSnackbarVerticalPosition;
+
+     horizontalPosition?: DscSnackbarHorizontalPosition;
+
+     duration?: number;
+
+     data: DscSnackbarData;
+
+}
+
+interface DscSnackbarData {
+
+     variant: DscSnackbarVariant;
+
+     message: string;
+
+     showIcon?: boolean;
+
+     button?: DscSnackbarActionButton;
+
+}
+
+interface DscSnackbarActionButton {
+
+     label: string;
+
+     actionFunction: (name?: string) => void;
+
+}
+
+constructor(private _snackbarService: DscSnackbarService) { }
+
+...
+
+openSnackbar(): void {
+
+   this._snackbarService.add({
+
+     verticalPosition: 'bottom',
+
+     horizontalPosition: 'center',
+
+     duration: 5000,
+
+     data: {
+
+       variant: 'info',
+
+       message: 'Message',
+
+       showIcon: true,
+
+       button: { label: 'Action', actionFunction: (name = 'action executed') => console.log('action executed') }
+
+     }
+
+   });
+
+<dsc-snackbar-demo></dsc-snackbar-demo>
+
+PROPRIEDADES
+duration	
+Define a duração em milissegundos que o snackbar ficará visível antes de desaparecer.
+number
+Default : 5000
+
+verticalPosition	
+Define a posição vertical do snackbar na tela.
+DscSnackbarVerticalPosition
+Default: 'bottom'
+
+
+horizontalPosition	
+Define a posição horizontal do snackbar na tela.
+DscSnackbarHorizontalPosition
+Default: 'center'
+
+PROPRIEDADES DATA
+message	
+Mensagem principal do snackbar dentro do objeto data: DscSnackbarData.
+string
+Default 'Message'
+
+variant	
+Define a variante do snackbar dentro do objeto data: DscSnackbarData.
+DscSnackbarVariant
+
+showIcon	
+Quando verdadeiro, exibe um ícone relacionado à variante do snackbar dentro do objeto data: DscSnackbarData.
+boolean
+
+button	
+Configuração do botão de ação do snackbar, incluindo rótulo e função de ação dentro do objeto data: DscSnackbarData.
+DscSnackbarActionButton
+Control:
+    button : {
+    label : "Action"
+    actionFunction : ()=>console.log("Action executed")
+    }
