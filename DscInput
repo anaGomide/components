@@ -1,0 +1,99 @@
+DscInput
+Componente de campo de entrada de texto que pode ser usado com várias configurações.
+
+import { DscInputComponent } from "sidsc-components/dsc-input";
+<form [formGroup]="formGroup">
+  <dsc-input
+    formControlName="input"
+    [label]="label"
+    [placeholder]="placeholder"
+    [required]="isRequired"
+    [type]="type"
+    [size]="size"
+    [mask]="mask"
+    [readOnly]="readOnly"
+    [formFieldHint]="formFieldHint"
+    [labelHint]="labelHint"
+    [labelHintTooltip]="labelHintTooltip"
+    [showIconPassword]="showIconPassword"
+    [showCharCounter]="showCharCounter"
+    [showClearButton]="showClearButton"
+    [iconPrefix]="iconPrefix"
+    [iconSuffix]="iconSuffix"
+    [maxlength]="maxlength"
+    [disabled]="disabled"
+    [errorMessage]="getErrorMessage()"
+    (keydown)="keydown.emit($event)"
+  />
+</form>
+
+
+type	
+@Input() type: string - Tipo do campo de entrada. Aceita "text", "email", "password" ou "number".
+string
+
+label	
+@Input() label: string - Texto do rótulo do campo de entrada.
+string
+
+placeholder	
+@Input() placeholder: string - Texto que aparece quando o campo está vazio.
+string
+
+size	
+@Input() size: string - Tamanho do campo. Aceita "small", "standard" ou "large".
+string
+
+labelHint	
+@Input() labelHint: string - Texto da dica exibida abaixo do campo.
+string
+
+labelHintTooltip	
+@Input() labelHintTooltip: string - Texto da dica de ferramenta exibida ao passar o mouse sobre o campo.
+string
+
+mask	
+@Input() mask: string - Máscara de entrada para o campo.
+string
+
+iconPrefix	
+@Input() iconPrefix: string | undefined - Nome do ícone do Material Design que será exibido à esquerda do campo.
+string
+
+iconSuffix	
+@Input() iconSuffix: string | undefined - Nome do ícone do Material Design que será exibido à direita do campo.
+string
+
+errorMessage	
+@Input() errorMessage: string - Mensagem de erro personalizada.
+string
+
+maxlength	
+@Input() maxlength: number - Número máximo de caracteres permitidos no campo.
+number
+
+showCharCounter	
+@Input() showCharCounter: boolean - Quando verdadeiro, exibe o contador de caracteres.
+boolean
+
+showClearButton	
+@Input() showClearButton: boolean - Quando verdadeiro, exibe o botão de limpar o campo.
+boolean
+	
+showIconPassword	
+@Input() showIconPassword: boolean - Quando verdadeiro, exibe o ícone de senha para alternar visibilidade (funciona apenas com o type password).
+boolean
+	
+disabled	
+@Input() disabled: boolean - Quando verdadeiro, desabilita o campo de entrada.
+boolean
+	
+readOnly	
+@Input() readOnly: boolean - Quando verdadeiro, o campo é somente leitura.
+boolean
+	
+formFieldHint	
+@Input() formFieldHint: string - Texto de dica exibido abaixo do campo.
+
+keydown	
+@Output() keydown: EventEmitter - Evento emitido ao pressionar uma tecla no campo.
