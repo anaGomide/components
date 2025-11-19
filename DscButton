@@ -1,0 +1,84 @@
+DscButton
+Um componente de botão que pode ser usado em vários estilos e tamanhos.
+
+import { DscButtonComponent } from "sidsc-components/dsc-button";
+
+<dsc-button
+  [label]="label"
+  [variant]="variant"
+  [size]="size"
+  [type]="type"
+  [iconStyle]="iconStyle"
+  [iconSuffix]="iconSuffix"
+  [disabled]="disabled"
+  [iconButton]="iconButton"
+  [iconPrefix]="iconPrefix"
+  [icon]="icon"
+  [ariaLabel]="ariaLabel"
+/>
+
+label	
+@Input() label: string | undefined - Texto que será exibido no botão. Não aplicável quando iconButton é verdadeiro.
+string
+
+variant	
+@Input() variant: DscButtonVariant - Define o estilo visual do botão, alterando cores e aparência conforme o contexto de uso.
+string
+Opções:
+primary
+secondary
+danger
+secondary-outlined
+danger-outlined
+auxiliary
+secondary-text
+secondary-text-inverse
+danger-text
+
+size	
+@Input() size: DscButtonSize - Define o tamanho do botão, afetando suas dimensões e espaçamento interno.
+string
+Opções:
+large
+standard
+small
+
+type	
+@Input() type: DscButtonType - Define a função do botão: "button" para ações regulares ou "submit" para envio de formulários.
+string
+Opções:
+button
+submit
+
+iconStyle	
+@Input() iconStyle: string - Define o estilo visual do ícone do Material Design quando utilizado no botão.
+string
+Opções:
+filled
+outlined
+rounded
+sharp
+two-tone
+
+
+iconSuffix	
+@Input() iconSuffix: string | undefined - Nome do ícone do Material Design que será exibido à direita do texto do botão.
+string
+arrow_forward
+
+disabled	
+@Input() disabled: boolean - Quando verdadeiro, desabilita o botão impedindo interações do usuário e aplicando estilo visual de desabilitado.
+boolean
+
+iconButton	
+@Input() iconButton: boolean - Quando verdadeiro, transforma o botão em um botão de ícone circular sem texto, apenas com o ícone definido.
+boolean
+
+iconPrefix	
+@Input() iconPrefix: string | undefined - Nome do ícone do Material Design que será exibido à esquerda do texto do botão.
+
+icon	
+@Input() icon: string | undefined - Nome do ícone do Material Design usado quando iconButton é verdadeiro.
+
+ariaLabel	
+@Input() ariaLabel: string | null - Texto de acessibilidade para descrever a função do botão, especialmente importante para botões de ícone.
