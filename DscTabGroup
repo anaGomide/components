@@ -1,0 +1,73 @@
+DscTabGroup
+Apresenta conteúdo em abas navegáveis, permitindo a organização de informações em seções separadas.
+
+import { DscTabGroupComponent, DscTabComponent } from "sidsc-components/dsc-tab-group";
+<dsc-tab-group
+  [tabSize]="tabSize"
+  [selectedIndex]="selectedIndex"
+  [animationDuration]="animationDuration"
+  (selectedIndexChange)="selectedIndexChange($event)"
+  (selectedTabChange)="selectedTabChange($event)"
+  (focusChange)="focusChange($event)"
+>
+  <dsc-tab
+    *ngFor="let tab of tabs"
+    [label]="tab.label"
+    [icon]="tab.icon"
+    [disabled]="tab.disabled"
+    [iconStyle]="tab.iconStyle"
+  >
+    {{ tab.content }}
+  </dsc-tab>
+</dsc-tab-group>
+
+DSCTAB
+Name: tabs	
+Description: Propriedades do componente DscTab:
+
+• @Input() label: string | undefined - Define o rótulo da aba.
+
+• @Input() icon: string | undefined - Define o ícone da aba em formato string (nome do ícone do Material Design ou URL do ícone).
+
+• @Input() disabled: boolean | undefined - Define se a aba está desabilitada (opcional).
+
+• @Input() iconStyle: string | undefined - Define o estilo do ícone (opcional) - pode ser "filled", "outlined" ou "rounded".
+
+Exemplo de uso no template: <dsc-tab *ngFor="let tab of tabs" [label]="tab.label" [icon]="tab.icon" [disabled]="tab.disabled" [iconStyle]="tab.iconStyle">{{ tab.content }}</dsc-tab>
+
+Control:
+tabs : [
+0 : {...} 4 keys
+1 : {...} 4 keys
+2 : {...} 4 keys
+]
+
+DSCTABGROUP
+tabSize	
+@Input() tabSize: DscTabGroupSize - Define o tamanho das abas, afetando o espaçamento e dimensões dos elementos.
+DscTabGroupSize
+Default: standard
+Control: large OR standard
+
+selectedIndex	
+@Input() selectedIndex: number - Define qual aba será selecionada inicialmente (baseado em zero).
+number
+Default: 0
+
+animationDuration	
+@Input() animationDuration: string - Define a duração da animação ao trocar entre abas (exemplo: "600ms").
+string
+Default: 600ms
+
+selectedIndexChange	
+@Output() selectedIndexChange: EventEmitter - Evento emitido quando o índice selecionado é alterado.
+EventEmitter<number>
+
+selectedTabChange	
+@Output() selectedTabChange: EventEmitter - Evento emitido quando a aba selecionada é alterada.
+EventEmitter<MatTabChangeEvent>
+
+focusChange	
+@Output() focusChange: EventEmitter - Evento emitido quando o foco muda entre as abas.
+EventEmitter<MatTabChangeEvent>
+
