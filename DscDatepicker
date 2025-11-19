@@ -1,0 +1,102 @@
+DscDatepicker
+O componente DscDatepicker é um seletor de data personalizável, baseado no Angular Material, que permite a seleção de datas com suporte a formatação e localidade.
+
+import { DscDatepickerComponent } from "sidsc-components/dsc-datepicker";
+
+<form [formGroup]="formGroup">
+  <dsc-datepicker
+    formControlName="datepicker"
+    [label]="label"
+    [placeholder]="placeholder"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    [monthYear]="monthYear"
+    [touchUi]="touchUi"
+    [readOnly]="readOnly"
+    [formFieldHint]="formFieldHint"
+    [errorMessage]="getErrorMessage()"
+    [labelHint]="labelHint"
+    [labelHintTooltip]="labelHintTooltip"
+    [datepickerFilter]="datepickerFilter"
+    (dateChange)="onDateChange($event)"
+    (dateInput)="onDateInput($event)"
+    (opened)="onOpened($event)"
+    (closed)="onClosed($event)"
+  />
+</form>
+Propriedade
+label	
+@Input() label: string - Define o texto do rótulo do campo de data.
+string
+
+
+placeholder	
+@Input() placeholder: string - Define o texto de placeholder exibido quando nenhuma data está selecionada.
+string
+
+
+maxDate	
+@Input() maxDate: Date | null - Define a data máxima que pode ser selecionada pelo usuário.
+Date
+null
+
+minDate	
+@Input() minDate: Date | null - Define a data mínima que pode ser selecionada pelo usuário.
+Date
+null
+
+monthYear	
+@Input() monthYear: boolean - Quando true, exibe apenas seleção de mês e ano, sem o dia.
+boolean
+
+
+touchUi	
+@Input() touchUi: boolean - Quando true, otimiza a interface para dispositivos touch.
+boolean
+
+disabled	
+@Input() disabled: boolean - Define se o campo está desabilitado.
+boolean
+
+readOnly	
+@Input() readOnly: boolean - Define se o campo está em modo somente leitura.
+boolean
+
+labelHint	
+@Input() labelHint: string - Texto da dica exibida abaixo do campo.
+string
+
+labelHintTooltip	
+@Input() labelHintTooltip: string - Texto da dica de ferramenta exibida ao passar o mouse sobre o campo.
+string
+
+errorMessage	
+@Input() errorMessage: string - Mensagem de erro personalizada.
+string
+
+datepickerFilter	
+@Input() datepickerFilter: (date: Date | null) => boolean - Função para filtrar datas disponíveis no calendário.
+(date: Date | null) => boolean
+
+formFieldHint	
+@Input() formFieldHint: string - Texto da dica exibida abaixo do campo.
+string
+
+
+Eventos
+
+dateChange	
+@Output() dateChange: EventEmitter - Evento emitido quando a data selecionada é alterada.
+EventEmitter<any>
+
+dateInput	
+@Output() dateInput: EventEmitter - Evento emitido quando há entrada de dados no campo de data.
+EventEmitter<any>
+
+opened	
+@Output() opened: EventEmitter - Evento emitido quando o calendário é aberto.
+EventEmitter<any>
+
+closed	
+@Output() closed: EventEmitter - Evento emitido quando o calendário é fechado.
+EventEmitter<any>
