@@ -1,0 +1,168 @@
+DscTable
+Apresenta dados em formato tabular com suporte a paginação, filtros e ordenação. Ideal para exibir conjuntos de dados estruturados com recursos avançados de manipulação.
+
+import { DscTableComponent, DscTableColumn, DscTableColumnBuilder } from "sidsc-components/dsc-table";
+
+...
+
+const columns: DscTableColumn[] = [
+  DscTableColumnBuilder.instance()
+    .property("id")
+    .title("ID")
+    .value((obj: any) => obj.id)
+    .width(80)
+    .sortable(true)
+    .build(),
+  DscTableColumnBuilder.instance()
+    .property("nome")
+    .title("Nome")
+    .value((obj: any) => obj.nome)
+    .sortable(true)
+    .build()
+];
+
+const data: ExampleData[] = [
+  { id: 1, nome: "João Silva" },
+  { id: 2, nome: "Maria Souza" },
+];
+
+
+<dsc-table
+  [columns]="columns"
+  [data]="data"
+  [tableMaxHeight]="tableMaxHeight"
+  [tableRowHeight]="tableRowHeight"
+  [selectorType]="selectorType"
+  [expandable]="expandable"
+  [selectedItems]="selectedItems"
+  [paginator]="paginator"
+  [paginatorPageIndex]="paginatorPageIndex"
+  [paginatorPageSize]="paginatorPageSize"
+  [hidePaginatorRangeLabel]="hidePaginatorRangeLabel"
+  [disabledPaginator]="disabledPaginator"
+  [expandedDetailTemplate]="expandedDetailTemplate"
+  [emptyMessageData]="emptyMessageData"
+  [backendPagination]="backendPagination"
+  [emitPageEventAfterView]="emitPageEventAfterView"
+  [showFirstLastButtons]="showFirstLastButtons"
+  [hidePageSize]="hidePageSize"
+  [showPageSizeOptions]="showPageSizeOptions"
+  [pageSizeOptions]="pageSizeOptions"
+  [expandMultiple]="expandMultiple"
+  (page)="page($event)"
+  (selectionChange)="selectionChange($event)"
+  (checkBoxChange)="checkboxChange($event)"
+  (radioButtonChange)="radioButtonChange($event)"
+  (sortChange)="sortChange($event)"
+  (rowExpanded)="rowExpanded($event)"
+/>
+
+PROPRIEDADES BASE
+data	
+@Input() data: Array de objetos que contém os dados a serem exibidos na tabela.
+ExampleData[]
+
+data : [
+0 : {...} 5 keys
+1 : {...} 5 keys
+2 : {...} 5 keys
+3 : {...} 5 keys
+4 : {...} 5 keys
+]
+
+columns	
+@Input() columns: DscTableColumn[] - Define as colunas da tabela, configurando título, alinhamento e outras propriedades.
+DscTableColumn[]
+
+OUTRAS PROPRIEDADES
+tableMaxHeight	
+@Input() tableMaxHeight: string - Define a altura máxima da tabela em pixels, habilitando rolagem quando o conteúdo excede este valor.
+string
+Default: 300
+
+tableRowHeight	
+@Input() tableRowHeight: string - Define a altura das linhas da tabela.
+string
+Default: 64
+
+selectorType	
+@Input() selectorType: "checkbox" | "radio-button" - Define o tipo de seletor para linhas da tabela (checkbox ou radio-button).
+Default: checkbox
+
+paginator	
+@Input() paginator: boolean - Habilita a paginação da tabela, permitindo navegar entre páginas de dados.
+boolean
+false
+
+expandable	
+@Input() expandable: boolean - Permite que as linhas da tabela sejam expandidas para mostrar conteúdo adicional.
+boolean
+false
+
+selectedItems	
+@Input() selectedItems: ExampleData[] - Array de objetos que contém os itens selecionados na tabela.
+ExampleData[]
+
+paginatorPageIndex	
+@Input() paginatorPageIndex: number - Define o índice da página atual do paginador.
+number
+Default: 0
+
+paginatorPageSize	
+@Input() paginatorPageSize: number - Define o número de itens por página no paginador.
+number
+Default: 10
+
+hidePaginatorRangeLabel	
+@Input() hidePaginatorRangeLabel: boolean - Oculta o label de intervalo do paginador.
+boolean
+Default: false
+
+disabledPaginator	
+@Input() disabledPaginator: boolean - Desabilita o paginador da tabela.
+boolean
+Default: false
+
+backendPagination	
+@Input() backendPagination: boolean - Habilita paginação controlada pelo backend.
+boolean
+Default: false
+
+emitPageEventAfterView	
+@Input() emitPageEventAfterView: boolean - Emite evento de página após a inicialização da view.
+boolean
+Default: false
+
+showFirstLastButtons	
+@Input() showFirstLastButtons: boolean - Exibe botões de primeira e última página no paginador.
+boolean
+Default: false
+
+hidePageSize	
+@Input() hidePageSize: boolean - Oculta o seletor de tamanho de página no paginador.
+boolean
+Default: false
+
+showPageSizeOptions	
+@Input() showPageSizeOptions: boolean - Exibe opções de tamanho de página no paginador.
+boolean
+Default: true
+
+pageSizeOptions	
+@Input() pageSizeOptions: number[] - Array com as opções de tamanho de página disponíveis.
+number[]
+Default: [5, 10, 25, 100]
+
+expandedDetailTemplate	
+@Input() expandedDetailTemplate: TemplateRef - Template para exibir detalhes expandidos das linhas.
+TemplateRef<any>
+
+emptyMessageData	
+@Input() emptyMessageData: string - Mensagem exibida quando a tabela não possui dados.
+string
+Default: Nenhum registro encontrado
+
+expandMultiple	
+@Input() expandMultiple: boolean - Permite expandir múltiplas linhas simultaneamente.
+boolean
+Default: false
