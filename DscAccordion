@@ -1,0 +1,71 @@
+DscAccordion
+O accordion é um cabeçalho (header) que pode ser clicado para revelar ou ocultar um conteúdo interno.
+
+import { DscAccordionComponent } from "sidsc-components/dsc-accordion";
+<dsc-accordion
+  [accordionItems]="accordionItems"
+  [multi]="multi"
+  [iconStyle]="iconStyle"
+  (itemExpanded)="itemExpanded($event)"
+  (afterCollapse)="afterCollapse($event)"
+  (afterExpand)="afterExpand($event)"
+  (closed)="closed($event)"
+  (opened)="opened($event)"
+/>
+
+Propriedades
+accordionItems	
+@Input() accordionItems: DscAccordionItem[] - Lista de itens do accordion, cada um com título, conteúdo e configurações.
+
+Propriedades da interface DscAccordionItem:
+
+• @Input() icon: string | undefined - Define o nome do ícone do Material Icon que será exibido.
+
+• @Input() iconColor: string (Padrão: --dsc-color-bg-neutral-7) - Define a cor do ícone do Material Icon que será exibido.
+
+• @Input() title: string - Define o título do item do componente.
+
+• @Input() expanded: boolean (Padrão: false) - Define se o item está expandido.
+
+• @Input() hideIconDescription: boolean (Padrão: false) - Define se a descrição do ícone de recolher/expandir será apresentada.
+
+• @Input() text: string | undefined - Define o texto que será exibido no item do componente.
+
+• @Input() template: TemplateRef | undefined - Define um template que será projetado no item do componente.
+
+• @Input() context: any - Define o contexto que será incorporado no template.
+
+DscAccordionItem[]
+	
+
+multi	
+Permite expandir múltiplos painéis simultaneamente quando definido como true.
+boolean
+Default: false
+
+iconStyle	
+@Input() iconStyle: 'outlined' | 'filled' | 'rounded' | 'sharp' | 'two-tone' (Padrão: 'filled') - Define o estilo visual dos ícones usados nos painéis do acordeão.
+
+sizeTitle	
+@Input() sizeTitle: 'small' | 'standard' | 'large' (Padrão: 'standard') - Define o tamanho do título do item do acordeão.
+
+Eventos
+itemExpanded	
+@Output() itemExpanded: EventEmitter - Evento emitido quando um item é expandido pelo usuário.
+EventEmitter<void>
+
+afterCollapse	
+@Output() afterCollapse: EventEmitter - Evento emitido após a animação de colapso ser concluída.
+EventEmitter<void>
+
+afterExpand	
+@Output() afterExpand: EventEmitter - Evento emitido após a animação de expansão ser concluída.
+EventEmitter<void>
+
+closed	
+@Output() closed: EventEmitter - Evento emitido quando um painel é fechado.
+EventEmitter<void>
+
+opened	
+@Output() opened: EventEmitter - Evento emitido quando um painel é aberto.
+EventEmitter<void>
