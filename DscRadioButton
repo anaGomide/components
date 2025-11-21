@@ -1,0 +1,78 @@
+DscRadioButton
+Permite seleção de uma opção em um grupo de opções mutuamente exclusivas. O componente oferece suporte a variantes visuais e diferentes tamanhos.
+
+import { DscRadioButtonComponent } from "sidsc-components/dsc-radio-button";
+<dsc-radio-button
+  [name]="'radio-default'"
+  [label]="'Radio button padrão'"
+  [value]="'option1'"
+  [labelPosition]="'after'"
+  [required]="false"
+  [size]="'standard'"
+  [variant]="'highlight'"
+  (change)="change($event)"
+  (focus)="focus($event)"
+></dsc-radio-button>
+
+label	
+@Input() label: string | undefined - Texto que será exibido como rótulo do radio button.
+string
+
+variant	
+@Input() variant: DscRadioButtonVariant - Define o estilo visual do radio button, alterando cores conforme o contexto de uso.
+string
+highlight
+accent
+danger
+
+size	
+@Input() size: DscRadioButtonSize - Define o tamanho do radio button, afetando suas dimensões e espaçamento interno.
+string
+large
+standard
+small
+
+labelPosition	
+@Input() labelPosition: DscRadioButtonLabelPosition - Define a posição do texto do label em relação ao radio button.
+string
+before
+after
+
+checked	
+@Input() checked: boolean - Define se o radio button está selecionado.
+boolean
+
+required	
+@Input() required: boolean - Define se o radio button é obrigatório.
+boolean
+	
+disabled	
+@Input() disabled: boolean - Quando verdadeiro, desabilita o radio button impedindo interações do usuário e aplicando estilo visual de desabilitado.
+boolean
+	
+name	
+@Input() name: string - Define o atributo "name" do radio button, importante para agrupamento em formulários.
+string
+	
+radio-default
+value	
+@Input() value: any - Define o valor associado ao radio button quando selecionado.
+string
+	
+option1
+ariaLabel	
+@Input() ariaLabel: string - Texto de acessibilidade para descrever a função do radio button para leitores de tela.
+	
+ariaDescribedby	
+@Input() ariaDescribedby: string - ID do elemento que descreve o radio button para acessibilidade.
+	
+ariaLabelledby	
+@Input() ariaLabelledby: string - ID do elemento que rotula o radio button para acessibilidade.
+	
+change	
+@Output() change: EventEmitter - Evento emitido quando o estado do radio button é alterado.
+
+focus	
+@Output() focus: EventEmitter - Evento emitido quando o radio button recebe foco.
+-
+-	Setup controls
