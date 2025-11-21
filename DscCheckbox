@@ -1,0 +1,79 @@
+DscCheckbox
+Permite marcar ou desmarcar opções independentes. O componente oferece suporte a variantes visuais, diferentes tamanhos e estados especiais como indeterminado.
+
+import { DscCheckboxComponent } from "sidsc-components/dsc-checkbox";
+
+<dsc-checkbox
+  [labelPosition]="labelPosition"
+  [name]="name"
+  [label]="label"
+  [indeterminate]="indeterminate"
+  [checked]="checked"
+  [required]="required"
+  [size]="size"
+  [variant]="variant"
+  [disabled]="disabled"
+  (change)="change.emit($event)"
+  (indeterminateChange)="indeterminateChange.emit($event)"
+/>
+
+label	
+@Input() label: string | undefined - Texto que será exibido como rótulo do checkbox.
+String
+	
+Checkbox padrão
+variant	
+@Input() variant: DscCheckboxVariant - Define o estilo visual do checkbox, alterando cores conforme o contexto de uso.
+String
+highlight
+accent
+danger
+
+size	
+@Input() size: DscCheckboxSize - Define o tamanho do checkbox, afetando suas dimensões e espaçamento interno.
+string
+large
+standard
+small
+
+labelPosition	
+@Input() labelPosition: DscCheckboxLabelPosition - Define a posição do texto do label em relação ao checkbox.
+string
+before
+after
+
+checked	
+@Input() checked: boolean - Define se o checkbox está marcado.
+boolean
+
+indeterminate	
+@Input() indeterminate: boolean - Define se o checkbox está em estado indeterminado (nem marcado nem desmarcado).
+boolean
+
+required	
+@Input() required: boolean - Define se o checkbox é obrigatório.
+boolean
+
+disabled	
+@Input() disabled: boolean - Quando verdadeiro, desabilita o checkbox impedindo interações do usuário e aplicando estilo visual de desabilitado.
+boolean
+	
+name	
+@Input() name: string - Define o atributo "name" do checkbox, importante para formulários.
+string
+
+checkbox-default
+ariaLabel	
+@Input() ariaLabel: string - Texto de acessibilidade para descrever a função do checkbox para leitores de tela.
+
+ariaDescribedby	
+@Input() ariaDescribedby: string - ID do elemento que descreve o checkbox para acessibilidade.
+	
+ariaLabelledby	
+@Input() ariaLabelledby: string - ID do elemento que rotula o checkbox para acessibilidade.
+	
+change	
+@Output() change: EventEmitter - Evento emitido quando o estado do checkbox é alterado.
+
+indeterminateChange	
+@Output() indeterminateChange: EventEmitter - Evento emitido quando o estado indeterminado do checkbox é alterado.
